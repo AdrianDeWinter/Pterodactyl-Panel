@@ -2,8 +2,9 @@ ARG  ALPINE=latest
 FROM alpine:${ALPINE} AS base
 
 # Set PHP and PHP-FPM versions
-ENV PHP_VER="php81" \
-    PHPFPM_VER="php-fpm81" \
+ARG PHP=81
+ENV PHP_VER="php${PHP}" \
+    PHPFPM_VER="php-fpm${PHP}" \
     NODE_OPTIONS=--openssl-legacy-provider
 
 # Update and prepare base image
