@@ -40,7 +40,7 @@ RUN apk --no-cache add \
         /run/nginx \
         /run/php-fpm && \
     ln -s /etc/${PHP_VER} /etc/php && \
-    #ln -s /usr/bin/${PHP_VER} /usr/bin/php && \
+    ln -sf /usr/bin/${PHP_VER} /usr/bin/php && \
     ln -s /usr/sbin/${PHPFPM_VER} /usr/sbin/php-fpm && \
     ln -s /var/log/${PHP_VER} /var/log/php
 
