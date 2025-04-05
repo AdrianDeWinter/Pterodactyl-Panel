@@ -92,7 +92,9 @@ RUN chmod u+x /tmp/s6-overlay /usr/local/bin/wait-for-it && \
         /etc/${PHP_VER}/php-fpm.d/www.conf && \
     # Symlink storage and conf file
     ln -s /config/storage storage && \
-    ln -s /config/pterodactyl.conf .env
+    ln -s /config/pterodactyl.conf .env && \
+    cp -r /etc/phpXX/* /etc/${PHP_VER} && \
+    rm -rf /etc/phpXX
 
 # Expose HTTP port
 EXPOSE 80
