@@ -2,7 +2,7 @@ ARG  ALPINE=3.21
 FROM alpine:${ALPINE} AS base
 
 # Set PHP and PHP-FPM versions
-ARG PHP=81
+ARG PHP=84
 ENV PHP_VER="php${PHP}" \
     PHPFPM_VER="php-fpm${PHP}" \
     NODE_OPTIONS=--openssl-legacy-provider
