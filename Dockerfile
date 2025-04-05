@@ -1,4 +1,5 @@
-FROM alpine AS base
+ARG  ALPINE=latest
+FROM alpine:${ALPINE} AS base
 
 # Set PHP and PHP-FPM versions
 ENV PHP_VER="php81" \
