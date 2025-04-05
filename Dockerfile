@@ -1,4 +1,4 @@
-ARG  ALPINE=latest
+ARG  ALPINE=3.21
 FROM alpine:${ALPINE} AS base
 
 # Set PHP and PHP-FPM versions
