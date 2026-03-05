@@ -45,10 +45,13 @@ RUN apk --no-cache add \
     ln -s /var/log/${PHP_VER} /var/log/php
 
 FROM base AS build
+
+ARG PANEL=1.11.11
+
 WORKDIR /var/www/pterodactyl
 
 # Download latest Panel build from project repository: https://github.com/pterodactyl/panel
-ADD https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz panel.tar.gz
+ADD https://github.com/pterodactyl/panel/releases/download/v${PANEL}/panel.tar.gz panel.tar.gz
 
 # Install dependencies, perform Panel installation process
 RUN apk --no-cache add yarn && \
