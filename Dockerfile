@@ -20,6 +20,7 @@ RUN apk --no-cache add \
         ${PHP_VER}-fileinfo \
         ${PHP_VER}-fpm \
         ${PHP_VER}-gd \
+        ${PHP_VER}-iconv \
         ${PHP_VER}-mbstring \
         ${PHP_VER}-pecl-memcached \
         ${PHP_VER}-openssl \
@@ -46,7 +47,7 @@ RUN apk --no-cache add \
 
 FROM base AS build
 
-ARG PANEL=1.11.11
+ARG PANEL=1.12.1
 
 WORKDIR /var/www/pterodactyl
 
