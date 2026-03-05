@@ -71,13 +71,14 @@ RUN apk --no-cache add yarn && \
 FROM base AS release
 WORKDIR /var/www/pterodactyl
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS="2"
+ARG S6=2.2.0.3
 
 # Copy built Panel from Build stage
 COPY --from=build --chown=nginx:nginx /var/www /var/www
 COPY root/ /
 
 # Download latest S6-Overlay build from project repository: https://github.com/just-containers/s6-overlay
-ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.3/s6-overlay-amd64-installer /tmp/s6-overlay
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6}/s6-overlay-amd64-installer /tmp/s6-overlay
 
 # Download latest Wait-For-It script from project repository: https://github.com/vishnubob/wait-for-it
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it
